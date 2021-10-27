@@ -54,7 +54,9 @@ module.exports = {
     try {
       const { user_id } = request.params;
       const result = await UserModel.deleteById(user_id);
-
+ 
+      if (result === 0) return response.status(400).json({notification: "note_id not found"});
+      
       return response.status(200).json(result);
   
     } catch (error) {
