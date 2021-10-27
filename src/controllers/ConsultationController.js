@@ -20,9 +20,13 @@ module.exports = {
 
   async getByUser(request, response){
     try {
+      const { user_id } = request.params;
+      const result = await ConsultationModel.getByUser(user_id);
       
+      return response.status(200).json(result);
+
     } catch (error) {
-      console.log("Consultation getById failed" + error);
+      console.log("Consultation getByUser failed" + error);
 
       return response.status(500).json({
         notification: "Internal server error while trying to get Consultation",

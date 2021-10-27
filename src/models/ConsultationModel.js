@@ -10,8 +10,8 @@ module.exports = {
     return result;
   },
 
-  async getById({consultation_id, user_id, doctor_id}) {
-    const result = await connection("consultation").where({consultation_id, user_id, doctor_id}).select("*");
+  async getByUser( user_id) {
+    const result = await connection("consultation").where({user_id}).select("*");
     return result;
   },
 
