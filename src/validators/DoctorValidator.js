@@ -3,9 +3,9 @@ const { celebrate, Segments, Joi } = require("celebrate");
 module.exports = {
   create: celebrate({
     [Segments.BODY]: Joi.object().keys({
-      name: Joi.string().required(),
-      descript: Joi.string().required(),
-      coust: Joi.number().required(),
+      name: Joi.string().min(1).max(80).required(),
+      descript: Joi.string().min(1).max(300).required(),
+      coust: Joi.string().min(1).max(20).required(),
     }) 
   }),
   getById: celebrate({
@@ -18,9 +18,9 @@ module.exports = {
       doctor_id: Joi.string().guid({ version: ["uuidv4"]}).required(),
     }),
     [Segments.BODY]: Joi.object().keys({
-      name: Joi.string().optional(),
-      descript: Joi.string().optional(),
-      coust: Joi.number().optional(),
+      name: Joi.string().min(1).max(80).optional(),
+      descript: Joi.string().min(1).max(300).optional(),
+      coust: Joi.string().min(1).max(20).optional(),
     }).min(1),
   }),
   delete: celebrate({

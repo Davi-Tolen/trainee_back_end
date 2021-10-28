@@ -3,12 +3,12 @@ const { celebrate, Segments, Joi } = require("celebrate");
 module.exports = {
   create: celebrate({
     [Segments.BODY]: Joi.object().keys({
-      name: Joi.string().required(),
-      email: Joi.string().email().required(),
-      phone: Joi.string().required(),
-      adress: Joi.string().required(),
+      name: Joi.string().min(1).max(80).required(),
+      email: Joi.string().email().min(1).max(100).required(),
+      phone: Joi.number().min(1).max(11).required(),
+      adress: Joi.string().min(1).max(100).required(),
       birthdate: Joi.date().required(),
-      password: Joi.string().required(),
+      password: Joi.string().min(1).max(20).required(),
     })
   }),
   getById: celebrate({
@@ -21,12 +21,12 @@ module.exports = {
       user_id: Joi.string().guid({ version: ["uuidv4"]}).required(),
     }),
     [Segments.BODY]: Joi.object().keys({
-      name: Joi.string().optional(),
-      email: Joi.string().email().optional(),
-      phone: Joi.string().optional(),
-      adress: Joi.string().optional(),
+      name: Joi.string().min(1).max(80).optional(),
+      email: Joi.string().email().min(1).max(100).optional(),
+      phone: Joi.number().min(1).max(11).optional(),
+      adress: Joi.string().min(1).max(100).optional(),
       birthdate: Joi.date().optional(),
-      password: Joi.string().optional(),
+      password: Joi.string().min(1).max(20).optional(),
     }).min(1),
   }),
   delete: celebrate({
