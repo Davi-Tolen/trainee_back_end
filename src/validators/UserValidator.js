@@ -8,7 +8,7 @@ module.exports = {
       phone: Joi.number().min(1).max(11).required(),
       adress: Joi.string().min(1).max(100).required(),
       birthdate: Joi.date().required(),
-      password: Joi.string().min(1).max(20).required(),
+      password: Joi.string().min(6).max(20).required(),
     })
   }),
   getById: celebrate({
