@@ -1,11 +1,12 @@
-const firebase = require('firebase/app', 'firebase/auth'); 
+const firebase = require('firebase/app');
+require("firebase/auth");
 
 
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: process.env.AUTH_DOMAIN,
-  projectId: proccess.env.PROJECT_ID,
+  projectId: process.env.PROJECT_ID,
   storageBucket: process.env.STORAGE_BUCKET,
   messagingSenderId: process.env.MESSAGING_SENDER_ID,
 };
@@ -16,7 +17,7 @@ module.exports = {
 
   async createNewUser(email, password) {
     
-      const result = await firebase.auth().createuUserWithEmailAndPassword(email, password);
+      const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
       return result.user.uid;
     
   },
