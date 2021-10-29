@@ -7,7 +7,6 @@ exports.up = function(knex) {
     table.int("phone").notNullable();
     table.string("adress").notNullable();
     table.int("birthdate").notNullable();
-    table.string("password").notNullable();
     table.string("firebase_id").notNullable();
   })
 };

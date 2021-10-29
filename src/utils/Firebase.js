@@ -1,5 +1,5 @@
 const firebase = require('firebase/app');
-require("firebase/auth");
+require('firebase/auth');
 
 
 
@@ -18,6 +18,7 @@ module.exports = {
   async createNewUser(email, password) {
     
       const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
+      
       return result.user.uid;
     
   },
