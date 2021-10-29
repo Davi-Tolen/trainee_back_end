@@ -1,6 +1,5 @@
-const { async } = require('@firebase/util');
-const firebase = require('firebase/app');
-require('firebase/auth');
+const firebase = require('firebase/app', 'firebase/auth'); 
+
 
 
 const firebaseConfig = {
