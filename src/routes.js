@@ -1,6 +1,8 @@
 const express = require('express');
 const routes = express.Router();
 
+const auth = require("./middlewares/authentication");
+
 const UserController = require("./controllers/UserController");
 const UserValidator = require("./validators/UserValidator");
 
@@ -9,6 +11,11 @@ const DoctorValidator= require("./validators/DoctorValidator");
 
 const ConsultationController = require("./controllers/ConsultationController");
 const ConsultationValidator = require("./validators/ConsultationValidator");
+
+const SessionController = require("./controllers/SessionController");
+
+//  Session
+routes.post("/login", SessionController.signIn);
 
 // User
 routes.get("/user/:user_id", UserValidator.getById, UserController.getById);
@@ -23,10 +30,10 @@ routes.put("/doctor/:doctor_id", DoctorValidator.update, DoctorController.update
 routes.delete("/doctor/:doctor_id", DoctorValidator.delete, DoctorController.delete);
 
 //Consultation
-routes.post("/consultation", ConsultationValidator.create, ConsultationController.create);
-routes.get("/consultation", ConsultationValidator.getByUser, ConsultationController.getByUser);
-routes.put("/consultation/:consultation_id", ConsultationValidator.update, ConsultationController.update);
-routes.delete("/consultation/:consultation_id", ConsultationValidator.delete, ConsultationController.delete);
+routes.post("/consultation", ConsultationValidator.create, auth.authenticateToken, ConsultationController.create);
+routes.get("/consultation", ConsultationValidator.getByUser, auth.authenticateToken, ConsultationController.getByUser);
+routes.put("/consultation/:consultation_id", ConsultationValidator.update, auth.authenticateToken, ConsultationController.update);
+routes.delete("/consultation/:consultation_id", ConsultationValidator.delete, auth.authenticateToken, ConsultationController.delete);
 
 
 module.exports = routes;
