@@ -3,9 +3,9 @@ const DoctorModel = require("../models/DoctorModel");
 module.exports = {
   async create(request, response){
     try {
-      const newDoctor = request.body;
+      const doctor = request.body;
 
-      const result = await DoctorModel.create(newDoctor);
+      const result = await DoctorModel.create(doctor);
 
       return response.status(200).json({doctor_id: result});
 
