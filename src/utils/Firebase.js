@@ -1,4 +1,6 @@
+const { request } = require('express');
 const firebase = require('firebase/app');
+const { update } = require('../controllers/UserController');
 require('firebase/auth');
 
 
@@ -27,4 +29,8 @@ module.exports = {
 
     return result.user.uid;
   },
+  
+  
+  
+  
 }

@@ -22,7 +22,6 @@ module.exports = {
     }),
     [Segments.BODY]: Joi.object().keys({
       name: Joi.string().min(1).max(80).optional(),
-      email: Joi.string().email().min(1).max(100).optional(),
       phone: Joi.number().min(1).max(11).optional(),
       adress: Joi.string().min(1).max(100).optional(),
       birthdate: Joi.date().optional(),
