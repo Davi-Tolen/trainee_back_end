@@ -26,5 +26,6 @@ module.exports = {
         .status(500)
         .json({ notification: "Error while trying to validate credentials" });
     }
+    // blabla
   },
 };
