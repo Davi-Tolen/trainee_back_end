@@ -23,6 +23,7 @@ module.exports = {
     }
   },
 
+
   async getById(request, response) {
     try {
       const { user_id } = request.params;
