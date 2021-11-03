@@ -31,7 +31,7 @@ routes.delete("/doctor/:doctor_id", DoctorValidator.delete, DoctorController.del
 
 //Consultation
 routes.post("/consultation", ConsultationValidator.create, auth.authenticateToken, ConsultationController.create);
-routes.get("/consultation",  auth.authenticateToken, ConsultationController.getByUser);
+routes.get("/consultation:user_id",  auth.authenticateToken, ConsultationController.getByUser);
 routes.put("/consultation/:consultation_id", ConsultationValidator.update, auth.authenticateToken, ConsultationController.update);
 routes.delete("/consultation/:consultation_id", ConsultationValidator.delete, auth.authenticateToken, ConsultationController.delete);
 
