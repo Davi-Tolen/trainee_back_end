@@ -5,6 +5,7 @@ module.exports = {
   async create(request, response){
     try {
       const newConsultation = request.body;
+      console.log(newConsultation)
 
       const result = await ConsultationModel.create(newConsultation);
 
