@@ -5,6 +5,7 @@ exports.up = function(knex) {
     table.string("user_id").notNullable();
     table.foreign("user_id").references("user_id").inTable("user").onDelete("cascade");
     table.int("date").notNullable();
+    table.string("hour").notNullable();
     table.string("doctor_id").notNullable();
     table.foreign("doctor_id").references("doctor_id").inTable("doctor").onDelete("cascade");
   })
