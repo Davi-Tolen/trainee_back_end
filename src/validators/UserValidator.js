@@ -7,7 +7,7 @@ module.exports = {
       email: Joi.string().email().min(1).max(100).required(),
       phone: Joi.string().required(),
       adress: Joi.string().min(1).max(100).required(),
-      birthdate: Joi.date().required(),
+      birthdate: Joi.string().required(),
       password: Joi.string().min(6).max(20).required(),
     }),
   }),
@@ -28,9 +28,9 @@ module.exports = {
       .keys({
         name: Joi.string().min(1).max(80).optional(),
         email: Joi.string().email().min(1).max(100).optional(),
-        phone: Joi.number().optional(),
+        phone: Joi.string().optional(),
         adress: Joi.string().min(1).max(100).optional(),
-        birthdate: Joi.date().optional(),
+        birthdate: Joi.string().optional(),
         password: Joi.string().min(1).max(20).optional(),
       })
       .min(1),

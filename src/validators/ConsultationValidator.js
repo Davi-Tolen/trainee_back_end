@@ -4,7 +4,7 @@ module.exports = {
   create: celebrate({
     [Segments.BODY]: Joi.object().keys({
       user_id: Joi.string().required(),
-      date: Joi.date().required(),
+      date: Joi.string().required(),
       hour: Joi.string().required(),
       doctor_id: Joi.string().required(),
     }),
@@ -24,7 +24,7 @@ module.exports = {
   }),
   update: celebrate({
     [Segments.BODY]: Joi.object().keys({
-      date: Joi.date().optional(),
+      date: Joi.string().optional(),
       hour: Joi.string().optional(),
     }),
   }),
