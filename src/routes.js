@@ -17,6 +17,7 @@ const SessionController = require("./controllers/SessionController");
 //  Session
 routes.post("/login", SessionController.signIn);
 routes.delete("/delete/:user", SessionController.deleteFirebaseUser);
+routes.put("/update", SessionController.updateFirebaseUser);
 // User
 routes.get("/user/:user_id", UserValidator.getById, UserController.getById);
 routes.post("/user", UserValidator.create, UserController.create);
