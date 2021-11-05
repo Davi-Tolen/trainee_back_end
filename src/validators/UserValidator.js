@@ -35,11 +35,11 @@ module.exports = {
       })
       .min(1),
   }),
-  delete: celebrate({
-    [Segments.PARAMS]: Joi.object().keys({
-      user_id: Joi.string()
-        .guid({ version: ["uuidv4"] })
-        .required(),
-    }),
-  }),
+  // delete: celebrate({
+  //   // [Segments.PARAMS]: Joi.object().keys({
+  //   //   user_id: Joi.string()
+  //   //     .guid({ version: ["uuidv4"] })
+  //   //     .required(),
+  //   // }),
+  // }),
 };

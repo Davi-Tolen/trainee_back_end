@@ -1,6 +1,9 @@
 const Firebase = require("../utils/Firebase");
+const firebase = require("firebase/app");
 const UserModel = require("../models/UserModel");
 const jwt = require("jsonwebtoken");
+const { deleteFirebaseuser } = require("../utils/Firebase");
+require("firebase/auth");
 
 module.exports = {
   async signIn(request, response) {
@@ -26,5 +29,15 @@ module.exports = {
         .status(500)
         .json({ notification: "Error while trying to validate credentials" });
     }
+  },
+  async deleteFirebaseUser(request, response) {
+    try {
+      firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+          const user = firebase.auth().currentUser;
+          user.delete();
+        }
+      });
+    } catch (error) {}
   },
 };
